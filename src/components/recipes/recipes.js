@@ -38,6 +38,16 @@ function RecipeList() {
     }
   }, [queryData]);
 
+
+  // Handle new recipes from the subscription
+  useEffect(() => {
+    if (subscriptionData) {
+      const newRecipe = subscriptionData.recipeAdded;
+      setRecipes(prevRecipes => [newRecipe, ...prevRecipes]); // Add new recipe to the top of the list
+    }
+  }, [subscriptionData]);
+
+  
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
