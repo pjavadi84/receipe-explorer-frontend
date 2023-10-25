@@ -47,13 +47,13 @@ function RecipeList() {
     }
   }, [subscriptionData]);
 
-  
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div>
-      {data.recipes.map(recipe => (
+   <div>
+      {recipes.map(recipe => (
         <div key={recipe.id}>
           <h3>{recipe.title}</h3>
           <p>{recipe.ingredients}</p>

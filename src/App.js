@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import client from './services/apollo';
+import RecipesList from './components/recipes/recipes';
 
 function App() {
   return (
