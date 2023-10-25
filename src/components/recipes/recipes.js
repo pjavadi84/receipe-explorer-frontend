@@ -29,6 +29,15 @@ function RecipeList() {
   const { loading, error, data } = useQuery(GET_RECIPES);
   const { data: subscriptionData } = useSubscription(NEW_RECIPE_ADDED);
 
+  const [recipes, setRecipes] = useState([]);
+
+// Update state when initial query data is fetched
+  useEffect(() => {
+    if (queryData) {
+      setRecipes(queryData.recipes);
+    }
+  }, [queryData]);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
